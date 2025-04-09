@@ -1,0 +1,35 @@
+.skills-section {
+    color: #fff;
+    padding: 60px 20px;
+    border-radius: 20px;
+    margin: 30px auto;
+    max-width: 900px;
+    text-align: center;
+    box-shadow: 0 0 20px #00ffff3b;
+  }
+.main-skill:hover{
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
+}
+  
+  .skills-section h2 {
+    font-size: 2.5rem;
+    color: #38bdf8;
+    margin-bottom: 30px;
+  }
+  
+  .skills-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .skills-section li {
+    font-size: 1.1rem;
+    margin: 10px 0;
+  }
+  
+  .skills-section span {
+    color: #0ea5e9;
+    font-weight: bold;
+  }
+  
