@@ -21,7 +21,7 @@ export default function Contact() {
 
     try {
       // ✅ 1. Save to backend
-      await axios.post('https://portfolio-website-wk4v.onrender.com', formData);
+      await axios.post('https://portfolio-website-wk4v.onrender.com/api/users', formData);
 
       // ✅ 2. Send confirmation email
       await emailjs.sendForm(
