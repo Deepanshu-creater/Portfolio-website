@@ -1,8 +1,7 @@
-// Updated JSX — Firstmain.jsx
+// Created by Deepanshu Sharma on 2025-03-15
 import React, { useState } from 'react';
 import './firstmain.css';
 import ProfilePic from './Screenshot 2025-03-15 234000.png';
-import Pdf from './Deepanshu Sharma Resume.pdf';
 import Skills from '../components/skill/skill';
 import Projects from '../components/projects/projects';
 import About from '../components/about/about';
@@ -40,21 +39,21 @@ export default function Firstmain() {
             </p>
 
             <div className="social-icons">
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-            <i className="fab fa-instagram" />
+            <a href="https://www.instagram.com/deepanshu_19092005/" target="_blank" rel="noopener noreferrer">
+              <i className="fab fa-instagram" />
+          </a>
+            <a href="https://x.com/DeepanshuS67116" target="_blank" rel="noopener noreferrer">
+              <i className="fab fa-twitter" />
             </a>
-  <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-    <i className="fab fa-twitter"></i>
-  </a>
-  <a href="https://github.com" target="_blank" rel="noopener noreferrer">
-    <i className="fab fa-github"></i>
-  </a>
-  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-    <i className="fab fa-linkedin-in"></i>
-  </a>
+            <a href="https://github.com/Deepanshu-creater" target="_blank" rel="noopener noreferrer">
+              <i className="fab fa-github" />
+            </a>
+            <a href="https://www.linkedin.com/in/deepanshu-sharma-3594a6319/" target="_blank" rel="noopener noreferrer">
+              <i className="fab fa-linkedin-in" />
+            </a>
 </div>
 
-            <a href={Pdf} download="My_CV.pdf">
+            <a href='/Deepanshu Sharma_Resume.pdf' download="Deepanshu Sharma_Resume.pdf">
               <button className="download-cv">Download CV</button>
             </a>
           </div>
@@ -68,10 +67,7 @@ export default function Firstmain() {
       </div>
 
       {/* Sections */}
-      <div id="about" className="frosted-glass" style={{ background: '#1a1a2e' }}>
-  <About />
-</div>
-
+      <div id="about" className="frosted-glass"><About /></div>
       <div id="skills" className="frosted-glass"><Skills /></div>
       <div id="projects" className="frosted-glass"><Projects /></div>
       <div id="contact" className="frosted-glass"><Contact /></div>
@@ -90,16 +86,16 @@ export default function Firstmain() {
           </ul>
 
           <div className="footer-socials">
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.instagram.com/deepanshu_19092005/" target="_blank" rel="noopener noreferrer">
               <i className="fab fa-instagram" />
           </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+            <a href="https://x.com/DeepanshuS67116" target="_blank" rel="noopener noreferrer">
               <i className="fab fa-twitter" />
             </a>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/Deepanshu-creater" target="_blank" rel="noopener noreferrer">
               <i className="fab fa-github" />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.linkedin.com/in/deepanshu-sharma-3594a6319/" target="_blank" rel="noopener noreferrer">
               <i className="fab fa-linkedin-in" />
             </a>
           </div>
