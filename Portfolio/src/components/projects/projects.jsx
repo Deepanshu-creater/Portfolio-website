@@ -24,7 +24,7 @@ const projectsData = [
   {
     title: "Edusync",
     desc: "AI-powered group study and virtual tutoring platform",
-    tech: "MERN Stack, WebSockets, AI APIs",
+    tech: "MERN Stack, WebSockets, AI multilingual transcript model",
     link: "#",
   }
   

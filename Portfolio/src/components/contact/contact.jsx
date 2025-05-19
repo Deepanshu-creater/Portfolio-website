@@ -7,7 +7,7 @@ import './contact.css';
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const form = useRef(); // ✅ reference for emailjs
+  const form = useRef();
 
   const handleChange = (e) => {
     setFormData((prev) => ({
@@ -20,10 +20,10 @@ export default function Contact() {
     e.preventDefault();
 
     try {
-      // ✅ 1. Save to backend
-      await axios.post('http://localhost:8000/api/users', formData);
+      // First send to backend
+      await axios.post('portfolio-website-psi-murex-97.vercel.app', formData);
 
-      // ✅ 2. Send confirmation email
+      // Then send email
       await emailjs.sendForm(
         'service_04wu7pr',
         'template_xydb1a8',
@@ -33,11 +33,26 @@ export default function Contact() {
 
       toast.success('Form submitted and confirmation email sent!');
       setFormData({ name: '', email: '', message: '' });
-      form.current.reset(); // ✅ clear emailjs form
-
+      form.current.reset();
+       
     } catch (error) {
-      console.error('Error submitting form or sending email:', error);
-      toast.error('Something went wrong. Please try again!');
+      // Detailed error logging
+      if (error.response) {
+        console.error('Server responded with an error:', error.response.data);
+    
+        if (error.response.status === 409) {
+          toast.error('This email has already been used.');
+        } else {
+          toast.error(`Server error: ${error.response.data.message || 'Checking backend logs.Sorry for inconvenience'}`);
+        }
+    
+      } else if (error.request) {
+        console.error('No response received:', error.request);
+        toast.error('No response from server. Check your internet or backend server.');
+      } else {
+        console.error('Error setting up the request:', error.message);
+        toast.error(`Error: ${error.message}`);
+      }
     }
   };
 

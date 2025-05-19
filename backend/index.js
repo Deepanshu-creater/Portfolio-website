@@ -17,26 +17,36 @@ const insert = async (req, res) => {
             email: email,
             message: message
         });
-
+    
         await enquirymodels.save();
         res.status(201).json({ msg: "Saved successfully" });
 
         console.log({ name, email, message });
+        const existing = await Enquirymodel.findOne({ email });
+        if (existing) {
+          return res.status(409).json({ message: 'This email has already been used.' });
+        }
     } catch (err) {
         console.error("Error saving data:", err);
         res.status(500).json({ msg: "Error while capturing", error: err.message });
+      
     }
-};
+
+};  
 
 // Proper use of POST route
 app.post('/api/users', insert);
-
+const PORT = process.env.PORT || 8000;
 // Connect to MongoDB
 mongoose.connect(process.env.DBURL)
-    .then(() => {
+    
+    
+.then(() => {
+    console.log("MongoDB URI:", process.env.DBURL); // DEBUG ONLY
+
         console.log("Connected to MongoDB");
-        app.listen(8000, () => {
-            console.log("Server is running on port 8000");
+        app.listen(PORT, () => {
+            console.log(`Server is running on port ${PORT}`);
         });
     })
     .catch((err) => {
