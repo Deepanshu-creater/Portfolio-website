@@ -12,20 +12,20 @@ const projectsData = [
     title: "UnMe",
     desc: "A real-time chat application for seamless conversations between you and me.",
     tech: "React, Node.js, MongoDB, WebSockets, Socket.io",
-    link: "#",
+    link: "https://u-me-chat-app.vercel.app/",
   }
   ,
   {
     title: "Portfolio Website",
     desc: "Modern portfolio with responsive design",
     tech: "React, CSS, Node.js, Emailjs(notification)",
-    link: "#",
+    link: "https://myportfolio-ten-iota.vercel.app/",
   },
   {
     title: "Edusync",
     desc: "AI-powered group study and virtual tutoring platform",
     tech: "MERN Stack, WebSockets, AI APIs",
-    link: "#",
+    link: "https://edu-sync-hub.vercel.app/",
   }
   
 ];
