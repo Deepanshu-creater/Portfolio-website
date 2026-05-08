@@ -53,7 +53,7 @@ export default function Firstmain() {
             </a>
 </div>
 
-            <a href='/Deepanshu Sharma_Resume.pdf' download="Deepanshu Sharma_Resume.pdf">
+            <a href='/New_Deepanshu Sharma_Resume.pdf' download="New_Deepanshu Sharma_Resume.pdf">
               <button className="download-cv">Download CV</button>
             </a>
           </div>
