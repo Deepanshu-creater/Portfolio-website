@@ -9,7 +9,7 @@ import './contact.css';
 // ============================================
 // ENVIRONMENT VARIABLES INITIALIZATION
 // ============================================
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
+const API_BASE_URL = 'https://portfolio-website-wk4v.onrender.com' || 'http://localhost:8000';
 const API_ENDPOINT = import.meta.env.VITE_API_ENDPOINT || '/api/contact';
 const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
