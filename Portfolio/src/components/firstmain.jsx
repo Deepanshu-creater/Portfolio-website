@@ -207,7 +207,7 @@ useEffect(() => {
       const nextIndex = (currentIndex + 1) % themeKeys.length;
       return themeKeys[nextIndex];
     });
-  }, 5000);
+  }, 8000);
 
   return () => clearInterval(interval);
 }, [autoMode, themeKeys]);
