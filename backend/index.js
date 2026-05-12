@@ -22,14 +22,14 @@ const app = express();
 // CORS Configuration
 const corsOptions = {
   origin: [
-    process.env.FRONTEND_URL || 'http://localhost:5173',
-    process.env.VERCEL_URL || 'https://portfolio-website-psi-murex-97.vercel.app',
-    'http://localhost:3000',
-    'http://localhost:5173'
-  ],
+    process.env.FRONTEND_URL,
+    "https://myportfolio-ten-iota.vercel.app",
+    "http://localhost:5173",
+    "http://localhost:3000"
+  ].filter(Boolean),
   credentials: true,
-  methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
+  methods: ["GET", "POST", "PATCH", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
   maxAge: 3600
 };
 
