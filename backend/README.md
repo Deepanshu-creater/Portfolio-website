@@ -220,7 +220,7 @@ const API_ENDPOINT = import.meta.env.VITE_API_ENDPOINT || '/api/contact';
 
 ### Frontend .env
 ```
-VITE_API_BASE_URL=http://localhost:8000
+VITE_API_BASE_URL=https://portfolio-website-wk4v.onrender.com
 VITE_API_ENDPOINT=/api/contact
 VITE_EMAILJS_SERVICE_ID=service_your_id
 VITE_EMAILJS_TEMPLATE_ID=template_your_id
