@@ -181,7 +181,7 @@ const Navbar = memo(({ active, onNavigate }) => {
    MAIN COMPONENT
 ===================================================== */
 export default function Firstmain() {
-  const [activeTheme, setActiveTheme] = useState('emerald');
+  const [activeTheme ,setActiveTheme] = useState('emerald');
   const [autoMode, setAutoMode] = useState(true);
   const [activeSection, setActiveSection] = useState('hero');
 
