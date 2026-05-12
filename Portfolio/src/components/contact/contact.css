@@ -1,68 +1,454 @@
-.contact-section {
-  color: #fff;
-  padding: 60px 20px;
-  border-radius: 20px;
-  margin: 30px auto;
-  max-width: 900px;
-  text-align: center;
-  box-shadow: 0 0 20px #00ffff3b;
-}
-.main-contact:hover{
-  transform: scale(1.05);
-  transition: transform 0.3s ease-in-out;
+/* ============================================ */
+/* CONTACT - AI COMMUNICATION TERMINAL */
+/* ============================================ */
 
-} 
-  .contact-section h2 {
-    font-size: 2.5rem;
-    color: #38bdf8;
-    margin-bottom: 20px;
+.contact-terminal-container {
+  position: relative;
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+  background: rgba(8, 8, 20, 0.7);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+  box-shadow: 
+    0 30px 80px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+/* ============================================ */
+/* TERMINAL HEADER */
+/* ============================================ */
+.terminal-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  background: rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.terminal-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.dot.red {
+  background: #ff5f56;
+  box-shadow: 0 0 6px #ff5f5660;
+}
+
+.dot.yellow {
+  background: #ffbd2e;
+  box-shadow: 0 0 6px #ffbd2e60;
+}
+
+.dot.green {
+  background: #27c93f;
+  box-shadow: 0 0 6px #27c93f60;
+}
+
+.terminal-title {
+  flex: 1;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 2px;
+  font-family: 'JetBrains Mono', monospace;
+  text-transform: uppercase;
+}
+
+.terminal-encryption {
+  font-size: 0.6rem;
+  color: #00ff88;
+  letter-spacing: 1.5px;
+  animation: encryptionPulse 3s ease-in-out infinite;
+}
+
+@keyframes encryptionPulse {
+  0%, 100% { text-shadow: 0 0 5px #00ff8840; }
+  50% { text-shadow: 0 0 12px #00ff88; }
+}
+
+/* ============================================ */
+/* TERMINAL BODY */
+/* ============================================ */
+.terminal-body {
+  padding: 30px 30px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Terminal output */
+.terminal-output-area {
+  margin-bottom: 30px;
+  padding: 16px 20px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  min-height: 80px;
+}
+
+.terminal-output {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 0.8rem;
+  color: #00ff88;
+  line-height: 1.8;
+  letter-spacing: 0.5px;
+}
+
+.terminal-text {
+  text-shadow: 0 0 8px rgba(0, 255, 136, 0.4);
+}
+
+.terminal-cursor {
+  display: inline-block;
+  animation: blink 1s step-end infinite;
+  color: #00ff88;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ============================================ */
+/* INPUT FIELD GROUPS */
+/* ============================================ */
+.input-field-group {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.field-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.label-icon {
+  color: var(--theme-secondary);
+  font-size: 0.5rem;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.input-wrapper:focus-within,
+.input-field-group.focused .input-wrapper {
+  border-color: rgba(0, 255, 255, 0.3);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.05), inset 0 0 20px rgba(0, 255, 255, 0.02);
+}
+
+.input-prefix {
+  padding: 0 14px;
+  color: var(--theme-secondary);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+.textarea-prefix {
+  align-self: flex-start;
+  padding-top: 14px;
+}
+
+.input-wrapper input,
+.input-wrapper textarea {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  font-size: 0.9rem;
+  padding: 14px 14px 14px 0;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  letter-spacing: 0.3px;
+}
+
+.input-wrapper input::placeholder,
+.input-wrapper textarea::placeholder {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.input-wrapper textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Animated border glow */
+.input-border-glow {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--theme-secondary), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.input-wrapper:focus-within .input-border-glow,
+.input-field-group.focused .input-border-glow {
+  opacity: 0.6;
+}
+
+/* ============================================ */
+/* SUBMIT BUTTON */
+/* ============================================ */
+.submit-area {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.terminal-submit-btn {
+  position: relative;
+  padding: 14px 40px;
+  background: linear-gradient(135deg, 
+    rgba(0, 255, 255, 0.08), 
+    rgba(255, 0, 255, 0.08));
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.terminal-submit-btn:hover {
+  border-color: var(--theme-secondary);
+  background: linear-gradient(135deg, 
+    rgba(0, 255, 255, 0.15), 
+    rgba(255, 0, 255, 0.15));
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.1);
+}
+
+.terminal-submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.btn-icon {
+  font-size: 1.1rem;
+}
+
+.btn-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.btn-scan-line {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.terminal-submit-btn:hover .btn-scan-line {
+  left: 100%;
+}
+
+.submit-note {
+  margin-top: 12px;
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.3);
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+/* ============================================ */
+/* TERMINAL STATUS BAR */
+/* ============================================ */
+.terminal-status-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+  padding: 12px 16px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  font-size: 0.6rem;
+  color: rgba(255, 255, 255, 0.35);
+  letter-spacing: 1.5px;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.status-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.status-dot-connected {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #00ff88;
+  box-shadow: 0 0 6px #00ff88;
+}
+
+/* ============================================ */
+/* TERMINAL GRID OVERLAY */
+/* ============================================ */
+.terminal-grid-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(0, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 30px 30px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ============================================ */
+/* TOAST NOTIFICATIONS */
+/* ============================================ */
+.futuristic-toast-wrapper {
+  z-index: 99999;
+}
+
+.futuristic-toast-container {
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+.futuristic-toast {
+  padding: 16px 20px;
+  border-radius: 10px;
+  backdrop-filter: blur(15px);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid;
+  position: relative;
+  overflow: hidden;
+}
+
+.futuristic-toast.success {
+  background: rgba(0, 255, 136, 0.08);
+  border-color: rgba(0, 255, 136, 0.2);
+}
+
+.futuristic-toast.error {
+  background: rgba(255, 56, 96, 0.08);
+  border-color: rgba(255, 56, 96, 0.2);
+}
+
+.toast-icon {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.futuristic-toast.success .toast-icon {
+  color: #00ff88;
+}
+
+.futuristic-toast.error .toast-icon {
+  color: #ff3860;
+}
+
+.toast-message {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 0.3px;
+}
+
+.toast-glow {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--theme-secondary), transparent);
+  opacity: 0.3;
+}
+
+/* ============================================ */
+/* RESPONSIVE */
+/* ============================================ */
+@media (max-width: 768px) {
+  .terminal-body {
+    padding: 20px;
   }
   
-  .contact-section p {
-    font-size: 1.1rem;
-    color: #cbd5e1;
-    margin-bottom: 30px;
-  }
-  
-  .contact-form {
-    display: flex;
+  .terminal-status-bar {
     flex-direction: column;
-    align-items: center;
+    gap: 8px;
+    align-items: flex-start;
   }
   
-  .contact-form input,
-  .contact-form textarea {
-    width: 80%;
-    max-width: 600px;
-    padding: 15px;
-    margin: 10px 0;
-    border: none;
+  .terminal-submit-btn {
+    width: 100%;
+    padding: 14px 20px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-terminal-container {
     border-radius: 10px;
-    background-color: #1e293b;
-    color: white;
-    font-size: 1rem;
-    outline: none;
   }
   
-  .contact-form input::placeholder,
-  .contact-form textarea::placeholder {
-    color: #94a3b8;
+  .terminal-body {
+    padding: 16px;
   }
   
-  .contact-form button {
-    padding: 12px 30px;
-    border: none;
-    border-radius: 10px;
-    background-color: #38bdf8;
-    color: #0f172a;
-    font-weight: bold;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  .terminal-output {
+    font-size: 0.7rem;
   }
   
-  .contact-form button:hover {
-    background-color: #0ea5e9;
-    box-shadow: 0 0 10px #38bdf8;
+  .input-wrapper input,
+  .input-wrapper textarea {
+    font-size: 0.8rem;
   }
-  
+}

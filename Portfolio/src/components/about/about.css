@@ -1,26 +1,395 @@
-.about-section {
-    color: #fff;
-    padding: 60px 20px;
-    border-radius: 20px;
-    margin: 30px auto;
-    max-width: 900px;
+/* ============================================ */
+/* ABOUT - FUTURISTIC DIGITAL IDENTITY PANEL */
+/* ============================================ */
+
+.about-identity-container {
+  position: relative;
+  width: 100%;
+  padding: 30px 20px 50px;
+  overflow: hidden;
+}
+
+/* ============================================ */
+/* SECTION HEADER */
+/* ============================================ */
+.about-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.about-header-decorator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.decorator-diamond {
+  color: var(--theme-secondary);
+  font-size: 0.5rem;
+  text-shadow: 0 0 8px var(--theme-secondary);
+  animation: diamondFloat 3s ease-in-out infinite;
+}
+
+@keyframes diamondFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.decorator-text {
+  font-size: 0.6rem;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 3px;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.about-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: -1px;
+  margin: 8px 0;
+  color: #ffffff;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+.about-bracket {
+  color: var(--theme-secondary);
+  font-weight: 300;
+  font-size: 1.8rem;
+  margin-right: 8px;
+  text-shadow: 0 0 15px var(--theme-secondary);
+}
+
+.about-subtitle {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.35);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* ============================================ */
+/* BIO SECTION */
+/* ============================================ */
+.about-bio-section {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  margin-bottom: 40px;
+  padding: 30px;
+  background: rgba(10, 10, 25, 0.4);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.bio-avatar-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.bio-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, 
+    rgba(0, 255, 255, 0.15), 
+    rgba(255, 0, 255, 0.15));
+  border: 2px solid rgba(0, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.avatar-initials {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+}
+
+.avatar-scan-line {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--theme-secondary), transparent);
+  animation: avatarScan 3s linear infinite;
+}
+
+@keyframes avatarScan {
+  0% { top: -10%; }
+  100% { top: 110%; }
+}
+
+.bio-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.bio-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #00ff88;
+  box-shadow: 0 0 8px #00ff88;
+}
+
+.bio-status-text {
+  font-size: 0.55rem;
+  color: #00ff88;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+}
+
+.bio-content {
+  flex: 1;
+}
+
+.bio-text {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 12px;
+}
+
+.bio-text:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================================ */
+/* IDENTITY CARDS GRID */
+/* ============================================ */
+.identity-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+/* ============================================ */
+/* IDENTITY CARD */
+/* ============================================ */
+.identity-card {
+  position: relative;
+  padding: 24px;
+  background: rgba(10, 10, 25, 0.45);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  transition: all 0.4s ease;
+  cursor: default;
+}
+
+.identity-card:hover {
+  border-color: rgba(0, 255, 255, 0.15);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 255, 255, 0.03);
+}
+
+.identity-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.identity-icon {
+  font-size: 1.4rem;
+}
+
+.identity-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: -0.2px;
+}
+
+.identity-content {
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.identity-card-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--theme-secondary), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.identity-card:hover .identity-card-glow {
+  opacity: 0.4;
+}
+
+/* ============================================ */
+/* STATISTICS DASHBOARD */
+/* ============================================ */
+.about-stats-dashboard {
+  margin-bottom: 40px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.stat-item {
+  padding: 20px;
+  background: rgba(10, 10, 25, 0.4);
+  backdrop-filter: blur(10px);
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+  border-color: rgba(0, 255, 255, 0.2);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.05);
+}
+
+.stat-value {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--theme-secondary);
+  font-family: 'JetBrains Mono', monospace;
+  text-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.stat-suffix {
+  font-size: 1.2rem;
+}
+
+.stat-label {
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+/* ============================================ */
+/* PHILOSOPHY SECTION */
+/* ============================================ */
+.about-philosophy {
+  padding: 30px;
+  background: rgba(10, 10, 25, 0.3);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.philosophy-quote {
+  position: relative;
+  padding-left: 20px;
+  border-left: 2px solid rgba(0, 255, 255, 0.3);
+}
+
+.quote-mark {
+  font-size: 3rem;
+  color: rgba(0, 255, 255, 0.2);
+  font-family: serif;
+  position: absolute;
+  top: -15px;
+  left: 0;
+  line-height: 1;
+}
+
+.philosophy-quote p {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.55);
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.quote-attribution {
+  font-size: 0.75rem;
+  color: var(--theme-secondary);
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}
+
+/* ============================================ */
+/* AMBIENT SCAN EFFECT */
+/* ============================================ */
+.about-scan-effect {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.2), transparent);
+  animation: aboutScan 5s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes aboutScan {
+  0% { transform: translateY(-100%); opacity: 0; }
+  50% { opacity: 0.5; }
+  100% { transform: translateY(-10px); opacity: 0; }
+}
+
+/* ============================================ */
+/* RESPONSIVE */
+/* ============================================ */
+@media (max-width: 968px) {
+  .about-bio-section {
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    box-shadow: 0 0 20px #00ffff3b;
-  }
-  #main-about:hover{
-    transform: scale(1.05);
-    transition: transform 0.3s ease-in-out;
-  }
-  .about-section h2 {
-    font-size: 2.5rem;
-    color: #38bdf8;
-    margin-bottom: 20px;
+    gap: 20px;
   }
   
-  .about-section p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #cbd5e1;
-    margin-bottom: 15px;
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
   
+  .identity-cards-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+  
+  .about-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-bio-section {
+    padding: 20px;
+  }
+  
+  .identity-cards-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  
+  .stat-value {
+    font-size: 1.5rem;
+  }
+  
+  .about-title {
+    font-size: 1.6rem;
+  }
+  
+  .philosophy-quote p {
+    font-size: 0.8rem;
+  }
+}
