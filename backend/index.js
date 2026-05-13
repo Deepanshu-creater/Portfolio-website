@@ -150,15 +150,21 @@ const startServer = async () => {
     // Start server
     const PORT = process.env.PORT || 8000;
 
-    const server = app.listen(PORT, () => {
-      logger.info(`Server started successfully`, {
-        port: PORT,
-        environment: process.env.NODE_ENV || 'development',
-        url: `http://localhost:${PORT}`,
-        databaseStatus: dbConnected ? 'connected' : 'disconnected'
-      });
-    });
+   const server = app.listen(PORT, () => {
+  const baseUrl =
+    process.env.NODE_ENV === "production"
+      ? "https://portfolio-website-wk4v.onrender.com"
+      : `http://localhost:${PORT}`;
 
+  logger.info("Server started successfully", {
+    port: PORT,
+    environment: process.env.NODE_ENV || "development",
+    url: baseUrl,
+    databaseStatus: dbConnected ? "connected" : "disconnected"
+  });
+
+  console.log(`Server is running on ${baseUrl}`);
+});
     // Graceful shutdown
     process.on('SIGTERM', () => {
       logger.info('SIGTERM signal received: closing HTTP server');
