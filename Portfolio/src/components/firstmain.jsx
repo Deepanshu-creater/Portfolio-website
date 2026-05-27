@@ -368,7 +368,7 @@ useEffect(() => {
                 <button className="btn btn--secondary" onClick={() => navigateTo('contact')}>
                   <i className="fas fa-paper-plane" /> Contact Me
                 </button>
-                <a className="btn btn--ghost" href="/New_Deepanshu Sharma_Resume.pdf" download>
+                <a className="btn btn--ghost" href="/DEEPANSHU_SHARMA_Resume.pdf" download>
                   <i className="fas fa-download" /> Resume
                 </a>
               </motion.div>
