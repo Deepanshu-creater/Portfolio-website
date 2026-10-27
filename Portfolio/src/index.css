@@ -1,68 +1,169 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import "tailwindcss";
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+/* ============================================================
+   NEO-BRUTALIST DESIGN TOKENS
+   ============================================================ */
+@theme {
+  --color-cream: #f4f0e6;
+  --color-paper: #fffdf5;
+  --color-ink: #0a0a0a;
+  --color-sun: #ffe600;
+  --color-hot: #ff4d8d;
+  --color-electric: #3d5afe;
+  --color-violet: #8b5cf6;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
+  --font-display: "Archivo Black", "Arial Black", sans-serif;
+  --font-body: "Space Grotesk", system-ui, sans-serif;
+  --font-mono: "Space Mono", ui-monospace, monospace;
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+html {
+  scroll-behavior: smooth;
+  /* entrance animations slide in from off-screen — never allow horizontal scroll */
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-ink);
+  background-color: var(--color-cream);
+  /* visible raw grid lines */
+  background-image:
+    linear-gradient(to right, rgba(10, 10, 10, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(10, 10, 10, 0.06) 1px, transparent 1px);
+  background-size: 32px 32px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+::selection {
+  background: var(--color-sun);
+  color: #000;
 }
 
-body {
-  margin: 0;
+/* Thick, brutalist focus ring for keyboard users */
+:focus-visible {
+  outline: 3px solid var(--color-electric);
+  outline-offset: 3px;
+}
+
+/* ============================================================
+   BRUTALIST SCROLLBAR
+   ============================================================ */
+::-webkit-scrollbar {
+  width: 14px;
+  height: 14px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+  border-left: 3px solid #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-sun);
+  border: 3px solid #0a0a0a;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-hot);
+}
+html {
+  scrollbar-color: var(--color-ink) var(--color-cream);
+  scrollbar-width: thin;
+}
+
+/* ============================================================
+   HARD, UN-BLURRED SHADOWS
+   ============================================================ */
+.shadow-hard {
+  box-shadow: 6px 6px 0 0 #0a0a0a;
+}
+.shadow-hard-sm {
+  box-shadow: 4px 4px 0 0 #0a0a0a;
+}
+.shadow-hard-lg {
+  box-shadow: 10px 10px 0 0 #0a0a0a;
+}
+
+/* ============================================================
+   BUTTONS THAT PHYSICALLY PRESS IN
+   ============================================================ */
+.btn-press {
+  transition:
+    transform 0.1s ease,
+    box-shadow 0.1s ease;
+}
+.btn-press:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 4px 4px 0 0 #0a0a0a;
+}
+.btn-press:active {
+  transform: translate(6px, 6px);
+  box-shadow: 0 0 0 0 #0a0a0a;
+}
+
+/* ============================================================
+   MARQUEE
+   ============================================================ */
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  width: max-content;
+  animation-name: marquee-scroll;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.marquee-wrap:hover .marquee-track {
+  animation-play-state: paused;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/* ============================================================
+   FLIP CARD
+   ============================================================ */
+.flip-scene {
+  perspective: 1400px;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
+/* ============================================================
+   SKIP LINK (a11y)
+   ============================================================ */
+.skip-link {
+  position: fixed;
+  top: -100%;
+  left: 1rem;
+  z-index: 100;
 }
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.skip-link:focus {
+  top: 1rem;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
-  a:hover {
-    color: #747bff;
+  .marquee-track {
+    animation: none;
   }
-  button {
-    background-color: #f9f9f9;
+  .btn-press:hover,
+  .btn-press:active {
+    transform: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
